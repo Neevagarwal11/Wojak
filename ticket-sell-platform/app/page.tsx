@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { QRCodeSVG } from "qrcode.react";
 import './styles.css';
+import Login from "../components/login";
 
 type Event = {
   id: number;
@@ -18,9 +19,20 @@ const events = [
 
 export default function Home() {
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+  const [showLogin, setShowLogin] = useState(false);
 
   return (
-    <div className="container">
+    <div className="w-full flex flex-col gap-5 relative border-2 items-center justify-center">
+      
+      <div className="border-2 rounded-xl p-2 absolute top-5 right-10">
+      <button onClick={() => setShowLogin(!showLogin)} className="font-black">
+        {showLogin ? "Hide Login" : "Login"}
+        {showLogin && <Login />}
+      </button>
+      </div>
+
+
+    <div className="container w-[60%]">
       <h1>Event Listing</h1>
       <ul className="event-list">
         {events.map((event) => (
@@ -47,5 +59,6 @@ export default function Home() {
         </div>
       )}
     </div>
+  </div>
   );
 }
