@@ -27,8 +27,8 @@ export default function Home() {
       <div className="border-2 rounded-xl p-2 absolute top-5 right-10">
       <button onClick={() => setShowLogin(!showLogin)} className="font-black">
         {showLogin ? "Hide Login" : "Login"}
-        {showLogin && <Login />}
       </button>
+        {showLogin && <Login />}
       </div>
 
 
